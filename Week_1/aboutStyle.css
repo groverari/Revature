@@ -39,7 +39,7 @@ h1 {
 
 img {
   animation: fly-in 5s 1;
-
+  margin-right: 10px;
   border-radius: 10px;
 }
 
