@@ -1,0 +1,32 @@
+.glass {
+  /* From https://css.glass */
+  background: rgba(54, 54, 54, 0.39);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url(https://static.vecteezy.com/system/resources/previews/016/807/934/non_2x/set-of-hand-drawn-various-shopping-bags-doodle-sale-clipart-shopping-bag-isolated-on-white-background-vector.jpg);
+  background-position: center;
+}
+.page-title {
+  font-size: 90px;
+}
+
+form {
+  padding: 40px;
+  margin: 10%;
+}
+
+.form-entry > input {
+  margin-left: 5px;
+  float: right;
+}
