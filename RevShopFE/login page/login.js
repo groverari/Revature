@@ -38,13 +38,3 @@ async function login() {
       "Could not login! \n Please check username and password and try again.";
   }
 }
-
-window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader");
-
-  loader.classList.add("loader-hidden");
-
-  loader.addEventListener("transitionend", () => {
-    document.body.removeChild("loader");
-  });
-});
