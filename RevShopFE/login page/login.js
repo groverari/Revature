@@ -1,24 +1,50 @@
 async function login() {
-  const url = "http://localhost:8080/users";
+  const url = "http://localhost:8080/login";
+
+  const username = document.getElementById("username");
+  const pass = document.getElementById("password");
+  const data = {
+    username: username.value,
+    password: pass.value,
+  };
+
+  //Check if any field is empty
+
+  if (data.password == "" || data.username == "") {
+    const error = document.getElementById("error");
+    error.innerHTML = "Both Username and Password are required";
+  }
+
+  //console.log(data);
 
   const res = await fetch(url, {
-    method: "GET",
+    method: "POST",
     headers: {
-      "Content-Type": "application.json",
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify(data),
   });
-  const body = await res.json();
-  console.log("RES: ");
-  console.log(res);
-  console.log("BODY");
-  console.log(body);
-
-  //   fetch(url)
-  //     .then((res) => {
-  //       console.log(res);
-  //       return res.json();
-  //     })
-  //     .then((body) => {
-  //       console.log(body);
-  //     });
+  try {
+    const body = await res.json();
+    console.log(body);
+    localStorage.setItem("user", JSON.stringify(body));
+    window.location.assign("../dashboard/dashboard.html");
+    //here I have to login and change the page
+    // need to store user info
+  } catch (err) {
+    //show red text above the form
+    const error = document.getElementById("error");
+    error.innerHTML =
+      "Could not login! \n Please check username and password and try again.";
+  }
 }
+
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader-hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild("loader");
+  });
+});
