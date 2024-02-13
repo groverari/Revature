@@ -41,7 +41,8 @@ async function signup(event) {
 
   try {
     const body = await res.json();
-    console.log(body);
+    localStorage.setItem("user", JSON.stringify(body));
+    window.location.assign("../dashboard/dashboard.html");
   } catch (err) {
     error.innerHTML =
       "Email already exists! You can try resetting your password";
