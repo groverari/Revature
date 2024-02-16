@@ -1,0 +1,7 @@
+<ul>
+  @for (plant of plantList; track plant.id;){
+  <li>
+    <app-plant [plant]="plant"></app-plant>
+  </li>
+  }
+</ul>

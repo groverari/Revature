@@ -1,0 +1,8 @@
+<div>
+  <h3>{{ plant.commonName }}</h3>
+  <h6>{{ plant.scientificName }}</h6>
+  <img src="{{ plant.img }}" [alt]="plant.description" />
+  <p>{{ plant.description }}</p>
+  <p>{{ plant.price }}</p>
+  <button (click)="addToCartHandler()">Add to Cart</button>
+</div>
